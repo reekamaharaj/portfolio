@@ -1,5 +1,5 @@
 # New Project
-this is the read me
+
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
 ## Available Scripts
