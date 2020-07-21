@@ -43,16 +43,14 @@ export default function About() {
 				<a
 					href="http://www.doodlejutsu.com"
 					target="_blank"
-					id="weblink"
-					class="font-bold underline">
+					id="weblink">
 					Doodlejutsu
 				</a>
 				. Along with my mental health advocacy I run a blog called{" "}
 				<a
 					href="http://www.illgetthere.com"
 					target="_blank"
-					id="weblink"
-					class="font-bold underline">
+					id="weblink">
 					I'll Get There
 				</a>{" "}
 				where I write honestly about living with mental illness.

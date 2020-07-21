@@ -5,7 +5,6 @@ export default function Project1() {
 		<>
 			<a
 				href="https://educatable.herokuapp.com/"
-				class="text-lg"
 				target="_blank">
 				educatable img
 			</a>

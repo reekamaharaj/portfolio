@@ -5,7 +5,6 @@ export default function Project3() {
 		<>
 			<a
 				href="https://reekamaharaj.github.io/clickymeow/"
-				class="text-lg"
 				target="_blank">
 				clickymeow img
 			</a>

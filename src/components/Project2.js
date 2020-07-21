@@ -5,7 +5,6 @@ export default function Project2() {
 		<>
 			<a
 				href="https://secret-sea-43148.herokuapp.com/"
-				class="text-lg"
 				target="_blank">
 				bookSeach img{" "}
 			</a>
