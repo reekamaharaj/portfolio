@@ -42,7 +42,7 @@ export default function Tab(props) {
 							{" "}
 							Home
 							<Collapse
-								in={openIndex}
+								in={openIndex === 0}
 								timeout="auto"
 								unmountOnExit>
 								<ListItemText primary="Inner Text" />
@@ -57,7 +57,7 @@ export default function Tab(props) {
 							{" "}
 							Portfolio
 							<Collapse
-								in={openIndex}
+								in={openIndex === 1}
 								timeout="auto"
 								unmountOnExit>
 								<ListItemText primary="Inner Text" />
@@ -72,7 +72,7 @@ export default function Tab(props) {
 							{" "}
 							About
 							<Collapse
-								in={openIndex}
+								in={openIndex === 2}
 								timeout="auto"
 								unmountOnExit>
 								<ListItemText primary="Inner Text" />
@@ -87,7 +87,7 @@ export default function Tab(props) {
 							{" "}
 							Contact
 							<Collapse
-								in={openIndex}
+								in={openIndex === 3}
 								timeout="auto"
 								unmountOnExit>
 								<ListItemText primary="Inner Text" />
