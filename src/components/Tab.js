@@ -8,7 +8,6 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import Home from "./Home";
 import Portfolio from "./Portfolio";
 import About from "./About";
-import Contact from "./Contact";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -78,16 +77,6 @@ export default function Tab(props) {
 				</ToggleButton>
 
 				<Divider />
-
-				<ToggleButton
-					value="contact"
-					selected={selectedIndex === 3}
-					onClick={event => handleTab(event, 3)}>
-					Contact
-					<Collapse in={openIndex === 3} timeout="auto" unmountOnExit>
-						<Contact />
-					</Collapse>
-				</ToggleButton>
 			</ToggleButtonGroup>
 		</List>
 	);
