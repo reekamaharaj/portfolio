@@ -12,7 +12,6 @@ import About from "./About";
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: "100%",
-		backgroundColor: theme.palette.background.paper,
 	},
 	nested: {
 		paddingLeft: theme.spacing(4),
