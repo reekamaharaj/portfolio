@@ -35,7 +35,7 @@ export default function Project1() {
 		<Paper elevation={3} className={classes.root}>
 			<Card>
 				<a href="https://educatable.herokuapp.com/" target="_blank">
-					educatable img
+					<img src="https://github.com/reekamaharaj/Responsive-Portfolio/blob/master/assets/images/educatable.jpg?raw=true" />
 				</a>
 				<Typography className={classes.header}>
 					<h1> EducatAble </h1>

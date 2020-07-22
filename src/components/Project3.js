@@ -37,7 +37,7 @@ export default function Project1() {
 				<a
 					href="https://reekamaharaj.github.io/clickymeow/"
 					target="_blank">
-					clickymeow img
+					<img src="https://github.com/reekamaharaj/Responsive-Portfolio/blob/master/assets/images/clickymeow.jpg?raw=true" />
 				</a>
 				<Typography className={classes.header}>
 					<h1> Clicky Meow </h1>

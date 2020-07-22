@@ -37,7 +37,7 @@ export default function Project2() {
 				<a
 					href="https://secret-sea-43148.herokuapp.com/"
 					target="_blank">
-					bookSeach img
+					<img src="https://github.com/reekamaharaj/Responsive-Portfolio/blob/master/assets/images/bookSearch.jpg?raw=true" />
 				</a>
 				<Typography className={classes.header}>
 					<h1> Book Search </h1>
