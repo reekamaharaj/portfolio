@@ -6,7 +6,9 @@ import Collapse from "@material-ui/core/Collapse";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import Home from "./Home";
-import Portfolio from "./Portfolio";
+import Project1 from "./Project1";
+import Project2 from "./Project2";
+import Project3 from "./Project3";
 import About from "./About";
 
 const useStyles = makeStyles(theme => ({
@@ -80,7 +82,7 @@ export default function Tab() {
 				</ToggleButton>
 				<Divider />
 				<ToggleButton
-					value="portfolio"
+					value="project1"
 					style={{ color: selectedIndex === 2 ? "red" : "blue" }}
 					selected={selectedIndex === 2}
 					onClick={event => handleTab(event, 2)}>
@@ -94,10 +96,54 @@ export default function Tab() {
 								visibility: selectedIndex === 2 ? "hidden" : "",
 							})
 						}>
-						Portfolio
+						Project1
 					</p>
 					<Collapse in={openIndex === 2} timeout="auto" unmountOnExit>
-						<Portfolio />
+						<Project1 />
+					</Collapse>
+				</ToggleButton>
+				<Divider />
+				<ToggleButton
+					value="project2"
+					style={{ color: selectedIndex === 3 ? "red" : "blue" }}
+					selected={selectedIndex === 3}
+					onClick={event => handleTab(event, 3)}>
+					<p
+						style={
+							({
+								transform:
+									selectedIndex === 3 ? "" : "rotate(90deg)",
+							},
+							{
+								visibility: selectedIndex === 3 ? "hidden" : "",
+							})
+						}>
+						Project2
+					</p>
+					<Collapse in={openIndex === 3} timeout="auto" unmountOnExit>
+						<Project2 />
+					</Collapse>
+				</ToggleButton>
+				<Divider />
+				<ToggleButton
+					value="project3"
+					style={{ color: selectedIndex === 4 ? "red" : "blue" }}
+					selected={selectedIndex === 4}
+					onClick={event => handleTab(event, 4)}>
+					<p
+						style={
+							({
+								transform:
+									selectedIndex === 4 ? "" : "rotate(90deg)",
+							},
+							{
+								visibility: selectedIndex === 4 ? "hidden" : "",
+							})
+						}>
+						Project3
+					</p>
+					<Collapse in={openIndex === 4} timeout="auto" unmountOnExit>
+						<Project3 />
 					</Collapse>
 				</ToggleButton>
 				<Divider />
