@@ -18,6 +18,9 @@ const useStyles = makeStyles(theme => ({
 		paddingLeft: theme.spacing(4),
 		height: "100%",
 	},
+	tabButtonClosed: {
+		width: 90,
+	},
 }));
 
 const styleFactory = (selectedIndex, index) => ({
@@ -32,11 +35,9 @@ const timings = {
 export default function Tab() {
 	const classes = useStyles();
 	const [selectedIndex, setSelectedIndex] = React.useState(0);
-	const [openIndex, setOpenIndex] = React.useState(0);
 
 	const handleTab = (event, index) => {
 		setSelectedIndex(index);
-		setOpenIndex(index);
 	};
 
 	return (
@@ -46,13 +47,16 @@ export default function Tab() {
 				exculsive="true"
 				className={classes.nested}>
 				<ToggleButton
+					className={
+						selectedIndex === 0 ? "" : classes.tabButtonClosed
+					}
 					disableRipple={true}
 					value="home"
 					selected={selectedIndex === 0}
 					onClick={event => handleTab(event, 0)}>
 					<p style={styleFactory(selectedIndex, 0)}>Home</p>
 					<Collapse
-						in={openIndex === 0}
+						in={selectedIndex === 0}
 						timeout={timings}
 						mountOnEnter>
 						<div
@@ -68,13 +72,16 @@ export default function Tab() {
 				<Divider />
 
 				<ToggleButton
+					className={
+						selectedIndex === 1 ? "" : classes.tabButtonClosed
+					}
 					disableRipple={true}
 					value="about"
 					selected={selectedIndex === 1}
 					onClick={event => handleTab(event, 1)}>
 					<p style={styleFactory(selectedIndex, 1)}>About</p>
 					<Collapse
-						in={openIndex === 1}
+						in={selectedIndex === 1}
 						timeout={timings}
 						mountOnEnter>
 						<div
@@ -93,6 +100,11 @@ export default function Tab() {
 
 				{Projects.map(project => [
 					<ToggleButton
+						className={
+							selectedIndex === project.id
+								? ""
+								: classes.tabButtonClosed
+						}
 						disableRipple={true}
 						value={project.id}
 						key={project.name}
@@ -102,7 +114,7 @@ export default function Tab() {
 							{project.name}
 						</p>
 						<Collapse
-							in={openIndex === project.id}
+							in={selectedIndex === project.id}
 							timeout={timings}
 							mountOnEnter>
 							<div
