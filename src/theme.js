@@ -20,3 +20,16 @@ const theme = (() => {
 })();
 
 export default theme;
+
+// primary: {
+// 	light: "#9692c7",
+// 	main: "#7c77b9",
+// 	dark: "#565381",
+// 	contrastText: "#fff",
+// },
+// secondary: {
+// 	light: "#a5cbe6",
+// 	main: "#8fbfe0",
+// 	dark: "#64859c",
+// 	contrastText: "#000",
+// },

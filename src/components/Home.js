@@ -39,7 +39,9 @@ export default function Home() {
 			<Card>
 				<Typography className={classes.header}>
 					<h1>Hi. I'm Reeka. </h1>
-					<img src="https://avatars3.githubusercontent.com/u/26286639?s=400&u=c295b5a161dd978f519d7c91bdf55c0538eae474&v=4"></img>
+					<img
+						src="https://avatars3.githubusercontent.com/u/26286639?s=400&u=c295b5a161dd978f519d7c91bdf55c0538eae474&v=4"
+						alt="personalAvatar"></img>
 				</Typography>
 				<Card className={classes.aboutCard}></Card>
 				<Card>
@@ -47,7 +49,7 @@ export default function Home() {
 						color="primary"
 						href="assets/other/ReekaMaharajResume.pdf"
 						target="_blank"
-						rel="noreferrer">
+						rel="noopener noreferrer">
 						<IconButton aria-label="link to resume">
 							<PictureAsPdfIcon className={classes.icons} />
 						</IconButton>
@@ -56,7 +58,7 @@ export default function Home() {
 						color="primary"
 						href="https://github.com/reekamaharaj"
 						target="_blank"
-						rel="noreferrer">
+						rel="noopener noreferrer">
 						<IconButton aria-label="github">
 							<GitHubIcon className={classes.icons} />
 						</IconButton>
@@ -65,7 +67,7 @@ export default function Home() {
 						color="primary"
 						href="https://www.linkedin.com/in/reekamaharaj/"
 						target="_blank"
-						rel="noreferrer">
+						rel="noopener noreferrer">
 						<IconButton aria-label="linkedin">
 							<LinkedInIcon className={classes.icons} />
 						</IconButton>
@@ -74,7 +76,7 @@ export default function Home() {
 						color="primary"
 						href="mailto: reekamaharaj@gmail.com"
 						target="_blank"
-						rel="noreferrer">
+						rel="noopener noreferrer">
 						<IconButton aria-label="email">
 							<AlternateEmailIcon className={classes.icons} />
 						</IconButton>

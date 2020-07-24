@@ -5,6 +5,7 @@ import { Typography, IconButton } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
+import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -27,20 +28,31 @@ const useStyles = makeStyles(theme => ({
 	icons: {
 		fontSize: 40,
 	},
+	img: {
+		maxHeight: 300,
+	},
+	chip: {
+		margin: 4,
+	},
 }));
 
-export default function Project1() {
+export default function ProjectCard(props) {
 	const classes = useStyles();
 	return (
 		<Paper elevation={3} className={classes.root}>
 			<Card>
 				<a
-					href="https://reekamaharaj.github.io/clickymeow/"
-					target="_blank">
-					<img src="https://github.com/reekamaharaj/Responsive-Portfolio/blob/master/assets/images/clickymeow.jpg?raw=true" />
+					href={props.repoLink}
+					target="_blank"
+					rel="noopener noreferrer">
+					<img
+						className={classes.img}
+						src={props.img}
+						alt="Projectimg"
+					/>
 				</a>
 				<Typography className={classes.header}>
-					<h1> Clicky Meow </h1>
+					<h1> {props.name} </h1>
 				</Typography>
 				<Card className={classes.aboutCard}>
 					<Typography
@@ -48,15 +60,15 @@ export default function Project1() {
 						variant="body2"
 						color="primary"
 						component="p">
-						Clicky Meow is a memory game built with React.
+						{props.description}
 					</Typography>
 				</Card>
 				<Card className={classes.header}>
 					<Link
 						color="primary"
-						href="hhttps://github.com/reekamaharaj/clickymeow"
+						href={props.deployedLink}
 						target="_blank"
-						rel="noreferrer">
+						rel="noopener noreferrer">
 						<IconButton aria-label="github">
 							<GitHubIcon className={classes.icons} />
 						</IconButton>
@@ -68,8 +80,15 @@ export default function Project1() {
 						variant="body2"
 						color="primary"
 						component="p">
-						SKILLS: <a> Visual Studios </a> <a> Javascript </a>
-						<a> Node.js </a> <a> Express </a> <a> React </a>
+						SKILLS:{" "}
+						{props.techUsed.map(tech => (
+							<Chip
+								className={classes.chip}
+								size="small"
+								label={tech}
+								key={tech}
+							/>
+						))}
 					</Typography>
 				</Card>
 			</Card>

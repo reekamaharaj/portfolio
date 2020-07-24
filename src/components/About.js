@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import { Typography, IconButton } from "@material-ui/core";
-import GitHubIcon from "@material-ui/icons/GitHub";
+import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
 
@@ -19,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 	about: {
 		padding: 25,
 		color: "white",
-		textTransform: "capitalize",
+		textTransform: "none",
 		textDecoration: "none",
 		fontSize: 16,
 		textAlign: "auto",
@@ -48,6 +47,7 @@ export default function About() {
 						I took some time to volunteer with nonprofits,
 						substitute for my public school district, become a
 						support group leader and start a small art business.
+						<br /> <br />
 						Through each option, there was a connecting factor. The
 						importance of software development. I saw gaps that
 						could be filled with the right software application. I
@@ -58,12 +58,13 @@ export default function About() {
 						so much out there, I didn't know what I should
 						concentrate on. I enrolled and completed the UT Austin
 						Full Stack Web Development program and am ready to start
-						my journey as a junior web developer. Other things about
-						me. I enjoy to draw and have a small art business{" "}
+						my journey as a junior web developer.
+						<br /> <br /> Other things about me. I enjoy to draw and
+						have a small art business{" "}
 						<Link
 							href="http://www.doodlejutsu.com"
 							target="_blank"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 							style={{
 								textDecoration: "underline white",
 								color: "white",
@@ -76,7 +77,7 @@ export default function About() {
 						<Link
 							href="http://www.illgetthere.com"
 							target="_blank"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 							style={{
 								textDecoration: "underline white",
 								color: "white",
@@ -86,17 +87,6 @@ export default function About() {
 						</Link>{" "}
 						where I write honestly about living with mental illness.
 					</Typography>
-				</Card>
-				<Card>
-					<Link
-						color="primary"
-						href="https://github.com/reekamaharaj"
-						target="_blank"
-						rel="noreferrer">
-						<IconButton aria-label="github">
-							<GitHubIcon className={classes.icons} />
-						</IconButton>
-					</Link>
 				</Card>
 			</Card>
 		</Paper>

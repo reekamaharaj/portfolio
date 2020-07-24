@@ -6,10 +6,9 @@ import Collapse from "@material-ui/core/Collapse";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import Home from "./Home";
-import Project1 from "./Project1";
-import Project2 from "./Project2";
-import Project3 from "./Project3";
+import ProjectCard from "./ProjectCard";
 import About from "./About";
+import Projects from "./projects.json";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -20,6 +19,17 @@ const useStyles = makeStyles(theme => ({
 		height: "100%",
 	},
 }));
+
+const styleFactory = (selectedIndex, index) => ({
+	transform: selectedIndex === index ? "" : "rotate(90deg)",
+	display: selectedIndex === index ? "none" : "",
+});
+
+const timings = {
+	appear: 500,
+	enter: 500,
+	exit: 0,
+};
 
 export default function Tab() {
 	const classes = useStyles();
@@ -39,114 +49,69 @@ export default function Tab() {
 				className={classes.nested}>
 				<ToggleButton
 					value="home"
-					style={{ color: selectedIndex === 0 ? "red" : "blue" }}
 					selected={selectedIndex === 0}
 					onClick={event => handleTab(event, 0)}>
-					<p
-						style={
-							({
-								transform:
-									selectedIndex === 0 ? "" : "rotate(90deg)",
-							},
-							{
-								visibility: selectedIndex === 0 ? "hidden" : "",
-							})
-						}>
-						Home
-					</p>
-					<Collapse in={openIndex === 0} timeout="auto" unmountOnExit>
+					<p style={styleFactory(selectedIndex, 0)}>Home</p>
+					<Collapse in={openIndex === 0} timeout={timings}>
 						<Home />
 					</Collapse>
 				</ToggleButton>
 				<Divider />
+
 				<ToggleButton
 					value="about"
-					style={{ color: selectedIndex === 1 ? "red" : "blue" }}
 					selected={selectedIndex === 1}
 					onClick={event => handleTab(event, 1)}>
-					<p
-						style={
-							({
-								transform:
-									selectedIndex === 1 ? "" : "rotate(90deg)",
-							},
-							{
-								visibility: selectedIndex === 1 ? "hidden" : "",
-							})
-						}>
-						About
-					</p>
-					<Collapse in={openIndex === 1} timeout="auto" unmountOnExit>
-						<About />
+					<p style={styleFactory(selectedIndex, 1)}>About</p>
+					<Collapse in={openIndex === 1} timeout={timings}>
+						<div
+							style={{
+								maxWidth: selectedIndex === 1 ? 600 : 0,
+								width: 600,
+								transition: "max-width 0.5s ease-in-out",
+								overflowX: "hidden",
+								height: 600,
+							}}>
+							<About />
+						</div>
 					</Collapse>
 				</ToggleButton>
+
 				<Divider />
-				<ToggleButton
-					value="project1"
-					style={{ color: selectedIndex === 2 ? "red" : "blue" }}
-					selected={selectedIndex === 2}
-					onClick={event => handleTab(event, 2)}>
-					<p
-						style={
-							({
-								transform:
-									selectedIndex === 2 ? "" : "rotate(90deg)",
-							},
-							{
-								visibility: selectedIndex === 2 ? "hidden" : "",
-							})
-						}>
-						Project1
-					</p>
-					<Collapse in={openIndex === 2} timeout="auto" unmountOnExit>
-						<Project1 />
-					</Collapse>
-				</ToggleButton>
-				<Divider />
-				<ToggleButton
-					value="project2"
-					style={{ color: selectedIndex === 3 ? "red" : "blue" }}
-					selected={selectedIndex === 3}
-					onClick={event => handleTab(event, 3)}>
-					<p
-						style={
-							({
-								transform:
-									selectedIndex === 3 ? "" : "rotate(90deg)",
-							},
-							{
-								visibility: selectedIndex === 3 ? "hidden" : "",
-							})
-						}>
-						Project2
-					</p>
-					<Collapse in={openIndex === 3} timeout="auto" unmountOnExit>
-						<Project2 />
-					</Collapse>
-				</ToggleButton>
-				<Divider />
-				<ToggleButton
-					value="project3"
-					style={{ color: selectedIndex === 4 ? "red" : "blue" }}
-					selected={selectedIndex === 4}
-					onClick={event => handleTab(event, 4)}>
-					<p
-						style={
-							({
-								transform:
-									selectedIndex === 4 ? "" : "rotate(90deg)",
-							},
-							{
-								visibility: selectedIndex === 4 ? "hidden" : "",
-							})
-						}>
-						Project3
-					</p>
-					<Collapse in={openIndex === 4} timeout="auto" unmountOnExit>
-						<Project3 />
-					</Collapse>
-				</ToggleButton>
-				<Divider />
+
+				{Projects.map(project => (
+					<div
+						style={{
+							maxWidth: selectedIndex === project.id ? 600 : 0,
+							width: 600,
+							transition: "max-width 0.5s ease-in-out",
+							height: 600,
+						}}>
+						<ToggleButton
+							value={project.id}
+							key={project.name}
+							selected={selectedIndex === project.id}
+							onClick={event => handleTab(event, project.id)}>
+							<p style={styleFactory(selectedIndex, project.id)}>
+								{project.name}
+							</p>
+							<Collapse
+								in={openIndex === project.id}
+								timeout={timings}>
+								<ProjectCard
+									name={project.name}
+									repoLink={project.repoLink}
+									deployedLink={project.deployedLink}
+									description={project.description}
+									img={project.img}
+									techUsed={project.techUsed}
+									role={project.role}
+								/>
+							</Collapse>
+						</ToggleButton>
+						<Divider />
+					</div>
+				))}
 			</ToggleButtonGroup>
 		</List>
 	);
