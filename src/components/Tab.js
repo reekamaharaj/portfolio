@@ -26,9 +26,7 @@ const styleFactory = (selectedIndex, index) => ({
 });
 
 const timings = {
-	appear: 500,
-	enter: 500,
-	exit: 0,
+	enter: 600,
 };
 
 export default function Tab() {
@@ -48,28 +46,42 @@ export default function Tab() {
 				exculsive="true"
 				className={classes.nested}>
 				<ToggleButton
+					disableRipple={true}
 					value="home"
 					selected={selectedIndex === 0}
 					onClick={event => handleTab(event, 0)}>
 					<p style={styleFactory(selectedIndex, 0)}>Home</p>
-					<Collapse in={openIndex === 0} timeout={timings}>
-						<Home />
+					<Collapse
+						in={openIndex === 0}
+						timeout={timings}
+						mountOnEnter>
+						<div
+							style={{
+								maxWidth: selectedIndex === 0 ? 600 : 0,
+								overflowX: "hidden",
+								transition: "ease-in-out",
+							}}>
+							<Home />
+						</div>
 					</Collapse>
 				</ToggleButton>
 				<Divider />
 
 				<ToggleButton
+					disableRipple={true}
 					value="about"
 					selected={selectedIndex === 1}
 					onClick={event => handleTab(event, 1)}>
 					<p style={styleFactory(selectedIndex, 1)}>About</p>
-					<Collapse in={openIndex === 1} timeout={timings}>
+					<Collapse
+						in={openIndex === 1}
+						timeout={timings}
+						mountOnEnter>
 						<div
 							style={{
 								maxWidth: selectedIndex === 1 ? 600 : 0,
-								width: 600,
-								transition: "max-width 0.5s ease-in-out",
 								overflowX: "hidden",
+								transition: "ease-in-out",
 								height: 600,
 							}}>
 							<About />
@@ -79,25 +91,27 @@ export default function Tab() {
 
 				<Divider />
 
-				{Projects.map(project => (
-					<div
-						style={{
-							maxWidth: selectedIndex === project.id ? 600 : 0,
-							width: 600,
-							transition: "max-width 0.5s ease-in-out",
-							height: 600,
-						}}>
-						<ToggleButton
-							value={project.id}
-							key={project.name}
-							selected={selectedIndex === project.id}
-							onClick={event => handleTab(event, project.id)}>
-							<p style={styleFactory(selectedIndex, project.id)}>
-								{project.name}
-							</p>
-							<Collapse
-								in={openIndex === project.id}
-								timeout={timings}>
+				{Projects.map(project => [
+					<ToggleButton
+						disableRipple={true}
+						value={project.id}
+						key={project.name}
+						selected={selectedIndex === project.id}
+						onClick={event => handleTab(event, project.id)}>
+						<p style={styleFactory(selectedIndex, project.id)}>
+							{project.name}
+						</p>
+						<Collapse
+							in={openIndex === project.id}
+							timeout={timings}
+							mountOnEnter>
+							<div
+								style={{
+									maxWidth:
+										selectedIndex === project.id ? 600 : 0,
+									overflowX: "hidden",
+									transition: "ease-in-out",
+								}}>
 								<ProjectCard
 									name={project.name}
 									repoLink={project.repoLink}
@@ -107,11 +121,11 @@ export default function Tab() {
 									techUsed={project.techUsed}
 									role={project.role}
 								/>
-							</Collapse>
-						</ToggleButton>
-						<Divider />
-					</div>
-				))}
+							</div>
+						</Collapse>
+					</ToggleButton>,
+					<Divider key={project.id} />,
+				])}
 			</ToggleButtonGroup>
 		</List>
 	);
