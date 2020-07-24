@@ -5,12 +5,21 @@ import "./index.css";
 
 const theme = (() => {
 	const palette = createPalette({
-		type: "dark",
+		primary: {
+			light: "#9692c7",
+			main: "#7c77b9",
+			dark: "#565381",
+			contrastText: "#fff",
+		},
+		secondary: {
+			light: "#a5cbe6",
+			main: "#8fbfe0",
+			dark: "#64859c",
+			contrastText: "#000",
+		},
 	});
 	const typography = createTypography(palette, {
-		fontFamily: "'Anton', sans-serif",
-		fontFamily: "'Dancing Script', cursive",
-		fontFamily: "'Montserrat', sans-serif",
+		fontFamily: "Montserrat",
 	});
 
 	return createMuiTheme({
@@ -20,16 +29,3 @@ const theme = (() => {
 })();
 
 export default theme;
-
-// primary: {
-// 	light: "#9692c7",
-// 	main: "#7c77b9",
-// 	dark: "#565381",
-// 	contrastText: "#fff",
-// },
-// secondary: {
-// 	light: "#a5cbe6",
-// 	main: "#8fbfe0",
-// 	dark: "#64859c",
-// 	contrastText: "#000",
-// },
