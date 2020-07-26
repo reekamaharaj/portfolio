@@ -11,7 +11,8 @@ import About from "./About.js";
 import Projects from "./projects.json.proxy.js";
 const useStyles = makeStyles(theme => ({
   root: {
-    height: "100%"
+    height: "100%",
+    backgrondColor: "transparent"
   },
   nested: {
     paddingLeft: theme.spacing(4),
@@ -21,7 +22,11 @@ const useStyles = makeStyles(theme => ({
     width: 90,
     fontSize: 16,
     marginTop: 5,
-    marginBottom: 5
+    marginBottom: 5,
+    color: "white"
+  },
+  tabButtonOpened: {
+    width: "100%"
   }
 }));
 
@@ -81,8 +86,7 @@ export default function Tab() {
     style: {
       maxWidth: selectedIndex === 1 ? 600 : 0,
       overflowX: "hidden",
-      transition: "ease-in-out",
-      height: 600
+      transition: "ease-in-out"
     }
   }, /*#__PURE__*/React.createElement(About, null)))), /*#__PURE__*/React.createElement(Divider, null), Projects.map(project => [/*#__PURE__*/React.createElement(ToggleButton, {
     className: selectedIndex === project.id ? "" : classes.tabButtonClosed,

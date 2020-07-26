@@ -15,19 +15,21 @@ const LightTooltip = withStyles(theme => ({
 }))(Tooltip);
 const useStyles = makeStyles(theme => ({
   root: {
-    height: "100%"
+    margin: 10
   },
   about: {
     paddingLeft: 25,
     paddingRight: 25,
+    paddingBottom: 15,
     textTransform: "none",
     textDecoration: "none",
     fontSize: 16,
     textAlign: "auto",
     fontFamily: "Montserrat"
   },
-  icons: {
-    fontSize: 40
+  aboutCard: {
+    paddingLeft: 20,
+    paddingRight: 20
   }
 }));
 export default function About() {
@@ -35,9 +37,7 @@ export default function About() {
   return /*#__PURE__*/React.createElement(Paper, {
     elevation: 3,
     className: classes.root
-  }, /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(Typography, {
-    className: classes.header
-  }, /*#__PURE__*/React.createElement("h1", null, "About Me")), /*#__PURE__*/React.createElement(Card, {
+  }, /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(Typography, null, /*#__PURE__*/React.createElement("h1", null, "About Me")), /*#__PURE__*/React.createElement(Card, {
     className: classes.aboutCard
   }, /*#__PURE__*/React.createElement(Typography, {
     className: classes.about,

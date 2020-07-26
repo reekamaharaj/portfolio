@@ -19,17 +19,39 @@ const LightTooltip = withStyles(theme => ({
 }))(Tooltip);
 const useStyles = makeStyles(theme => ({
   root: {
-    height: "100%"
+    margin: 10
   },
   about: {
     padding: 25,
     textDecoration: "none",
-    fontSize: 16,
     textAlign: "auto",
     fontFamily: "Montserrat"
   },
   icons: {
-    fontSize: 40
+    fontSize: 50,
+    "&": {
+      lineHeight: "60px",
+      color: "gray",
+      transition: ".5s"
+    },
+    "&:before": {
+      content: "",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "blue",
+      transition: ".5s",
+      transform: "scale(.9)",
+      zIndex: "-1"
+    },
+    "&:hover:before": {
+      transform: "scale(1.2)",
+      boxShadow: "0 0 15px blue",
+      filter: "blur(3px)"
+    },
+    "&:hover": {
+      color: "blue",
+      textShadow: "0 0 15px blue"
+    }
   }
 }));
 export default function Home() {
@@ -40,7 +62,10 @@ export default function Home() {
   }, /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(Typography, {
     className: classes.header
   }, /*#__PURE__*/React.createElement("h1", null, "Hi. I'm Reeka. "), /*#__PURE__*/React.createElement("img", {
-    src: "https://avatars3.githubusercontent.com/u/26286639?s=400&u=c295b5a161dd978f519d7c91bdf55c0538eae474&v=4",
+    style: {
+      maxWidth: 400
+    },
+    src: "./images/avatar.jpg",
     alt: "personalAvatar"
   })), /*#__PURE__*/React.createElement(Card, {
     className: classes.aboutCard

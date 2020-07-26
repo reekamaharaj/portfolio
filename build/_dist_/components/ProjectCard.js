@@ -24,14 +24,37 @@ const useStyles = makeStyles(theme => ({
     paddingRight: 20
   },
   des: {
-    textTransform: "capitalize",
+    textTransform: "none",
     textDecoration: "none",
-    fontSize: 16,
     textAlign: "auto",
     fontFamily: "Montserrat"
   },
   icons: {
-    fontSize: 40
+    fontSize: 40,
+    "&": {
+      lineHeight: "60px",
+      color: "gray",
+      transition: ".5s"
+    },
+    "&:before": {
+      content: "",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "blue",
+      transition: ".5s",
+      transform: "scale(.9)",
+      zIndex: "-1"
+    },
+    "&:hover:before": {
+      transform: "scale(1.2)",
+      boxShadow: "0 0 15px blue",
+      filter: "blur(3px)"
+    },
+    "&:hover": {
+      color: "blue",
+      textShadow: "0 0 15px blue"
+    } // hover glow style from https://codepen.io/Stockin
+
   },
   img: {
     maxHeight: 300
@@ -59,9 +82,7 @@ export default function ProjectCard(props) {
     className: classes.img,
     src: props.img,
     alt: "Projectimg"
-  }))), /*#__PURE__*/React.createElement(Typography, {
-    className: classes.header
-  }, /*#__PURE__*/React.createElement("h1", null, " ", props.name, " ", /*#__PURE__*/React.createElement(Link, {
+  }))), /*#__PURE__*/React.createElement(Typography, null, /*#__PURE__*/React.createElement("h1", null, " ", props.name, /*#__PURE__*/React.createElement(Link, {
     color: "primary",
     href: props.deployedLink,
     target: "_blank",
@@ -72,7 +93,7 @@ export default function ProjectCard(props) {
     "aria-label": "github"
   }, /*#__PURE__*/React.createElement(GitHubIcon, {
     className: classes.icons
-  })))))), /*#__PURE__*/React.createElement(Card, {
+  })))), " ")), /*#__PURE__*/React.createElement(Card, {
     className: classes.card
   }, /*#__PURE__*/React.createElement(Typography, {
     className: classes.des,
@@ -82,7 +103,7 @@ export default function ProjectCard(props) {
     className: classes.projectCard,
     variant: "body2",
     component: "p"
-  }, /*#__PURE__*/React.createElement("h3", {
+  }, /*#__PURE__*/React.createElement("h2", {
     className: classes.header
   }, "SKILLS:"), " ", props.techUsed.map(tech => /*#__PURE__*/React.createElement(Chip, {
     variant: "outlined",
