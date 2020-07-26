@@ -13,6 +13,7 @@ import Projects from "./projects.json";
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: "100%",
+		backgrondColor: "transparent",
 	},
 	nested: {
 		paddingLeft: theme.spacing(4),
@@ -23,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 		fontSize: 16,
 		marginTop: 5,
 		marginBottom: 5,
-		backgroundColor: "black",
+		color: "white",
 	},
 	tabButtonOpened: {
 		width: "100%",

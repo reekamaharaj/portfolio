@@ -29,9 +29,6 @@ const useStyles = makeStyles(theme => ({
 		textAlign: "auto",
 		fontFamily: "Montserrat",
 	},
-	icons: {
-		fontSize: 40,
-	},
 	aboutCard: {
 		paddingLeft: 20,
 		paddingRight: 20,

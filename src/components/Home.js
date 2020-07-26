@@ -30,11 +30,9 @@ const useStyles = makeStyles(theme => ({
 		fontFamily: "Montserrat",
 	},
 	icons: {
-		fontSize: 60,
+		fontSize: 50,
 		"&": {
 			lineHeight: "60px",
-			borderRadius: "50%",
-			fontSize: "30px",
 			color: "gray",
 			transition: ".5s",
 		},
@@ -42,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 			content: "",
 			width: "100%",
 			height: "100%",
-			borderRadius: "50%",
+
 			backgroundColor: "blue",
 			transition: ".5s",
 			transform: "scale(.9)",
@@ -55,7 +53,6 @@ const useStyles = makeStyles(theme => ({
 		},
 		"&:hover": {
 			color: "blue",
-			boxShadow: "0 0 15px blue",
 			textShadow: "0 0 15px blue",
 		},
 	},
@@ -69,9 +66,12 @@ export default function Home() {
 				<Typography className={classes.header}>
 					<h1>Hi. I'm Reeka. </h1>
 					<img
-						style={{ maxWidth: 300 }}
-						src="./images/avatar.png"
-						alt="personalAvatar"></img>
+						style={{
+							maxWidth: 400,
+						}}
+						src="./images/avatar.jpg"
+						alt="personalAvatar"
+					/>
 				</Typography>
 				<Card className={classes.aboutCard}></Card>
 				<Card>

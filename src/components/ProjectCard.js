@@ -32,11 +32,9 @@ const useStyles = makeStyles(theme => ({
 		fontFamily: "Montserrat",
 	},
 	icons: {
-		fontSize: 60,
+		fontSize: 40,
 		"&": {
 			lineHeight: "60px",
-			borderRadius: "50%",
-			fontSize: "30px",
 			color: "gray",
 			transition: ".5s",
 		},
@@ -44,7 +42,6 @@ const useStyles = makeStyles(theme => ({
 			content: "",
 			width: "100%",
 			height: "100%",
-			borderRadius: "50%",
 			backgroundColor: "blue",
 			transition: ".5s",
 			transform: "scale(.9)",
@@ -57,7 +54,6 @@ const useStyles = makeStyles(theme => ({
 		},
 		"&:hover": {
 			color: "blue",
-			boxShadow: "0 0 15px blue",
 			textShadow: "0 0 15px blue",
 		},
 		// hover glow style from https://codepen.io/Stockin
@@ -93,7 +89,7 @@ export default function ProjectCard(props) {
 				</LightTooltip>
 
 				<Typography>
-					<h2>
+					<h1>
 						{" "}
 						{props.name}
 						<Link
@@ -107,7 +103,7 @@ export default function ProjectCard(props) {
 								</IconButton>
 							</LightTooltip>
 						</Link>{" "}
-					</h2>
+					</h1>
 				</Typography>
 				<Card className={classes.card}>
 					<Typography
@@ -123,7 +119,7 @@ export default function ProjectCard(props) {
 						className={classes.projectCard}
 						variant="body2"
 						component="p">
-						<h3 className={classes.header}>SKILLS:</h3>{" "}
+						<h2 className={classes.header}>SKILLS:</h2>{" "}
 						{props.techUsed.map(tech => (
 							<Chip
 								variant="outlined"
