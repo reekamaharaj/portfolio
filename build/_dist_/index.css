@@ -1,8 +1,44 @@
-html, body, #root, #root>div {
+html,
+body,
+#root,
+#root > div {
 	height: 100%;
-	width:100%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat&display=swap');
+h1 {
+	color: #426DFB;
+	font-size: 40px;
+    text-shadow: 0 0 3vw #2356FF;
+    font-family: 'Nothing You Could Do', cursive;
+	font-weight: bolder;
+}
+
+h3 {
+	color: #426DFB;
+	font-size: 20px;
+    line-height: 25px;
+    text-shadow: 0 0 3vw #2356FF;
+    font-family: 'Nothing You Could Do', cursive;
+	font-weight: bolder;
+}
+h1 {
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite;
+}
+
+@keyframes h1 {
+    0%,
+    100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+    }
+    50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+    }
+}

@@ -18,7 +18,10 @@ const useStyles = makeStyles(theme => ({
     height: "100%"
   },
   tabButtonClosed: {
-    width: 90
+    width: 90,
+    fontSize: 16,
+    marginTop: 5,
+    marginBottom: 5
   }
 }));
 

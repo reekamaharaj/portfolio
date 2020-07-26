@@ -20,6 +20,13 @@ const useStyles = makeStyles(theme => ({
 	},
 	tabButtonClosed: {
 		width: 90,
+		fontSize: 16,
+		marginTop: 5,
+		marginBottom: 5,
+		backgroundColor: "black",
+	},
+	tabButtonOpened: {
+		width: "100%",
 	},
 }));
 
@@ -89,7 +96,6 @@ export default function Tab() {
 								maxWidth: selectedIndex === 1 ? 600 : 0,
 								overflowX: "hidden",
 								transition: "ease-in-out",
-								height: 600,
 							}}>
 							<About />
 						</div>

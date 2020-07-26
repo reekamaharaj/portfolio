@@ -1,38 +1,76 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Typography, IconButton } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
 import Chip from "@material-ui/core/Chip";
+import Tooltip from "@material-ui/core/Tooltip";
+
+const LightTooltip = withStyles(theme => ({
+	tooltip: {
+		backgroundColor: theme.palette.common.white,
+		color: "rgba(0, 0, 0, 0.87)",
+		boxShadow: theme.shadows[1],
+		fontSize: 11,
+	},
+}))(Tooltip);
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		margin: 10,
 	},
-	header: {
-		color: "blue",
+	card: {
+		paddingLeft: 20,
+		paddingRight: 20,
 	},
-	aboutCard: {
-		backgroundColor: "blue",
-	},
-	about: {
-		padding: 25,
-		color: "white",
-		textTransform: "capitalize",
+	des: {
+		textTransform: "none",
 		textDecoration: "none",
-		fontSize: 16,
 		textAlign: "auto",
+		fontFamily: "Montserrat",
 	},
 	icons: {
-		fontSize: 40,
+		fontSize: 60,
+		"&": {
+			lineHeight: "60px",
+			borderRadius: "50%",
+			fontSize: "30px",
+			color: "gray",
+			transition: ".5s",
+		},
+		"&:before": {
+			content: "",
+			width: "100%",
+			height: "100%",
+			borderRadius: "50%",
+			backgroundColor: "blue",
+			transition: ".5s",
+			transform: "scale(.9)",
+			zIndex: "-1",
+		},
+		"&:hover:before": {
+			transform: "scale(1.2)",
+			boxShadow: "0 0 15px blue",
+			filter: "blur(3px)",
+		},
+		"&:hover": {
+			color: "blue",
+			boxShadow: "0 0 15px blue",
+			textShadow: "0 0 15px blue",
+		},
+		// hover glow style from https://codepen.io/Stockin
 	},
 	img: {
 		maxHeight: 300,
 	},
 	chip: {
 		margin: 4,
+		textTransform: "capitalize",
+	},
+	projectCard: {
+		paddingBottom: 15,
 	},
 }));
 
@@ -41,48 +79,54 @@ export default function ProjectCard(props) {
 	return (
 		<Paper elevation={3} className={classes.root}>
 			<Card>
-				<a
-					href={props.repoLink}
-					target="_blank"
-					rel="noopener noreferrer">
-					<img
-						className={classes.img}
-						src={props.img}
-						alt="Projectimg"
-					/>
-				</a>
-				<Typography className={classes.header}>
-					<h1> {props.name} </h1>
+				<LightTooltip title="Deployed App">
+					<a
+						href={props.repoLink}
+						target="_blank"
+						rel="noopener noreferrer">
+						<img
+							className={classes.img}
+							src={props.img}
+							alt="Projectimg"
+						/>
+					</a>
+				</LightTooltip>
+
+				<Typography>
+					<h2>
+						{" "}
+						{props.name}
+						<Link
+							color="primary"
+							href={props.deployedLink}
+							target="_blank"
+							rel="noopener noreferrer">
+							<LightTooltip title="GitHub Repo">
+								<IconButton aria-label="github">
+									<GitHubIcon className={classes.icons} />
+								</IconButton>
+							</LightTooltip>
+						</Link>{" "}
+					</h2>
 				</Typography>
-				<Card className={classes.aboutCard}>
+				<Card className={classes.card}>
 					<Typography
-						className={classes.about}
+						className={classes.des}
 						variant="body2"
-						color="primary"
 						component="p">
 						{props.description}
 					</Typography>
 				</Card>
-				<Card className={classes.header}>
-					<Link
-						color="primary"
-						href={props.deployedLink}
-						target="_blank"
-						rel="noopener noreferrer">
-						<IconButton aria-label="github">
-							<GitHubIcon className={classes.icons} />
-						</IconButton>
-					</Link>
-				</Card>
+
 				<Card>
 					<Typography
-						className={classes.header}
+						className={classes.projectCard}
 						variant="body2"
-						color="primary"
 						component="p">
-						SKILLS:{" "}
+						<h3 className={classes.header}>SKILLS:</h3>{" "}
 						{props.techUsed.map(tech => (
 							<Chip
+								variant="outlined"
 								className={classes.chip}
 								size="small"
 								label={tech}

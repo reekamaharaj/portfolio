@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Typography, IconButton } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -8,27 +8,56 @@ import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
 import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
+import Tooltip from "@material-ui/core/Tooltip";
+
+const LightTooltip = withStyles(theme => ({
+	tooltip: {
+		backgroundColor: theme.palette.common.white,
+		color: "rgba(0, 0, 0, 0.87)",
+		boxShadow: theme.shadows[1],
+		fontSize: 11,
+	},
+}))(Tooltip);
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		height: "100%",
-	},
-	header: {
-		color: "blue",
-	},
-	aboutCard: {
-		backgroundColor: "blue",
+		margin: 10,
 	},
 	about: {
 		padding: 25,
-		color: "white",
-		textTransform: "capitalize",
 		textDecoration: "none",
-		fontSize: 16,
 		textAlign: "auto",
+		fontFamily: "Montserrat",
 	},
 	icons: {
-		fontSize: 40,
+		fontSize: 60,
+		"&": {
+			lineHeight: "60px",
+			borderRadius: "50%",
+			fontSize: "30px",
+			color: "gray",
+			transition: ".5s",
+		},
+		"&:before": {
+			content: "",
+			width: "100%",
+			height: "100%",
+			borderRadius: "50%",
+			backgroundColor: "blue",
+			transition: ".5s",
+			transform: "scale(.9)",
+			zIndex: "-1",
+		},
+		"&:hover:before": {
+			transform: "scale(1.2)",
+			boxShadow: "0 0 15px blue",
+			filter: "blur(3px)",
+		},
+		"&:hover": {
+			color: "blue",
+			boxShadow: "0 0 15px blue",
+			textShadow: "0 0 15px blue",
+		},
 	},
 }));
 
@@ -40,47 +69,56 @@ export default function Home() {
 				<Typography className={classes.header}>
 					<h1>Hi. I'm Reeka. </h1>
 					<img
-						src="https://avatars3.githubusercontent.com/u/26286639?s=400&u=c295b5a161dd978f519d7c91bdf55c0538eae474&v=4"
+						style={{ maxWidth: 300 }}
+						src="./images/avatar.png"
 						alt="personalAvatar"></img>
 				</Typography>
 				<Card className={classes.aboutCard}></Card>
 				<Card>
-					<Link
-						color="primary"
-						href="assets/other/ReekaMaharajResume.pdf"
-						target="_blank"
-						rel="noopener noreferrer">
-						<IconButton aria-label="link to resume">
-							<PictureAsPdfIcon className={classes.icons} />
-						</IconButton>
-					</Link>
-					<Link
-						color="primary"
-						href="https://github.com/reekamaharaj"
-						target="_blank"
-						rel="noopener noreferrer">
-						<IconButton aria-label="github">
-							<GitHubIcon className={classes.icons} />
-						</IconButton>
-					</Link>
-					<Link
-						color="primary"
-						href="https://www.linkedin.com/in/reekamaharaj/"
-						target="_blank"
-						rel="noopener noreferrer">
-						<IconButton aria-label="linkedin">
-							<LinkedInIcon className={classes.icons} />
-						</IconButton>
-					</Link>
-					<Link
-						color="primary"
-						href="mailto: reekamaharaj@gmail.com"
-						target="_blank"
-						rel="noopener noreferrer">
-						<IconButton aria-label="email">
-							<AlternateEmailIcon className={classes.icons} />
-						</IconButton>
-					</Link>
+					<LightTooltip title="Resume PDF">
+						<Link
+							color="primary"
+							href="assets/other/ReekaMaharajResume.pdf"
+							target="_blank"
+							rel="noopener noreferrer">
+							<IconButton aria-label="link to resume">
+								<PictureAsPdfIcon className={classes.icons} />
+							</IconButton>
+						</Link>
+					</LightTooltip>
+					<LightTooltip title="GitHub Repo">
+						<Link
+							color="primary"
+							href="https://github.com/reekamaharaj"
+							target="_blank"
+							rel="noopener noreferrer">
+							<IconButton aria-label="github">
+								<GitHubIcon className={classes.icons} />
+							</IconButton>
+						</Link>
+					</LightTooltip>
+					<LightTooltip title="LinkedIn">
+						<Link
+							color="primary"
+							href="https://www.linkedin.com/in/reekamaharaj/"
+							target="_blank"
+							rel="noopener noreferrer">
+							<IconButton aria-label="linkedin">
+								<LinkedInIcon className={classes.icons} />
+							</IconButton>
+						</Link>
+					</LightTooltip>
+					<LightTooltip title="Email">
+						<Link
+							color="primary"
+							href="mailto: reekamaharaj@gmail.com"
+							target="_blank"
+							rel="noopener noreferrer">
+							<IconButton aria-label="email">
+								<AlternateEmailIcon className={classes.icons} />
+							</IconButton>
+						</Link>
+					</LightTooltip>
 				</Card>
 			</Card>
 		</Paper>

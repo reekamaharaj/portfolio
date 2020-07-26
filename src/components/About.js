@@ -1,30 +1,40 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
+import Tooltip from "@material-ui/core/Tooltip";
+
+const LightTooltip = withStyles(theme => ({
+	tooltip: {
+		backgroundColor: theme.palette.common.white,
+		color: "rgba(0, 0, 0, 0.87)",
+		boxShadow: theme.shadows[1],
+		fontSize: 11,
+	},
+}))(Tooltip);
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		height: "100%",
-	},
-	header: {
-		color: "blue",
-	},
-	aboutCard: {
-		backgroundColor: "blue",
+		margin: 10,
 	},
 	about: {
-		padding: 25,
-		color: "white",
+		paddingLeft: 25,
+		paddingRight: 25,
+		paddingBottom: 15,
 		textTransform: "none",
 		textDecoration: "none",
 		fontSize: 16,
 		textAlign: "auto",
+		fontFamily: "Montserrat",
 	},
 	icons: {
 		fontSize: 40,
+	},
+	aboutCard: {
+		paddingLeft: 20,
+		paddingRight: 20,
 	},
 }));
 
@@ -33,14 +43,13 @@ export default function About() {
 	return (
 		<Paper elevation={3} className={classes.root}>
 			<Card>
-				<Typography className={classes.header}>
+				<Typography>
 					<h1>About Me</h1>
 				</Typography>
 				<Card className={classes.aboutCard}>
 					<Typography
 						className={classes.about}
 						variant="body2"
-						color="primary"
 						component="p">
 						I had a short career in Civil Engineering before I
 						decided to take a step back to reevaluate my life goals.
@@ -61,30 +70,34 @@ export default function About() {
 						my journey as a junior web developer.
 						<br /> <br /> Other things about me. I enjoy to draw and
 						have a small art business{" "}
-						<Link
-							href="http://www.doodlejutsu.com"
-							target="_blank"
-							rel="noopener noreferrer"
-							style={{
-								textDecoration: "underline white",
-								color: "white",
-								fontWeight: "bold",
-							}}>
-							Doodlejutsu
-						</Link>
+						<LightTooltip title="Art Portfolio">
+							<Link
+								href="http://www.doodlejutsu.com"
+								target="_blank"
+								rel="noopener noreferrer"
+								style={{
+									textDecoration: "underline white",
+									color: "white",
+									fontWeight: "bold",
+								}}>
+								Doodlejutsu
+							</Link>
+						</LightTooltip>
 						. Along with my mental health advocacy I run a blog
 						called{" "}
-						<Link
-							href="http://www.illgetthere.com"
-							target="_blank"
-							rel="noopener noreferrer"
-							style={{
-								textDecoration: "underline white",
-								color: "white",
-								fontWeight: "bold",
-							}}>
-							I'll Get There
-						</Link>{" "}
+						<LightTooltip title="Blog">
+							<Link
+								href="http://www.illgetthere.com"
+								target="_blank"
+								rel="noopener noreferrer"
+								style={{
+									textDecoration: "underline white",
+									color: "white",
+									fontWeight: "bold",
+								}}>
+								I'll Get There
+							</Link>
+						</LightTooltip>{" "}
 						where I write honestly about living with mental illness.
 					</Typography>
 				</Card>

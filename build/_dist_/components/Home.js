@@ -1,5 +1,5 @@
 import React from "/web_modules/react.js";
-import { makeStyles } from "/web_modules/@material-ui/core/styles.js";
+import { withStyles, makeStyles } from "/web_modules/@material-ui/core/styles.js";
 import Paper from "/web_modules/@material-ui/core/Paper.js";
 import { Typography, IconButton } from "/web_modules/@material-ui/core.js";
 import GitHubIcon from "/web_modules/@material-ui/icons/GitHub.js";
@@ -8,23 +8,25 @@ import AlternateEmailIcon from "/web_modules/@material-ui/icons/AlternateEmail.j
 import PictureAsPdfIcon from "/web_modules/@material-ui/icons/PictureAsPdf.js";
 import Link from "/web_modules/@material-ui/core/Link.js";
 import Card from "/web_modules/@material-ui/core/Card.js";
+import Tooltip from "/web_modules/@material-ui/core/Tooltip.js";
+const LightTooltip = withStyles(theme => ({
+  tooltip: {
+    backgroundColor: theme.palette.common.white,
+    color: "rgba(0, 0, 0, 0.87)",
+    boxShadow: theme.shadows[1],
+    fontSize: 11
+  }
+}))(Tooltip);
 const useStyles = makeStyles(theme => ({
   root: {
     height: "100%"
   },
-  header: {
-    color: "blue"
-  },
-  aboutCard: {
-    backgroundColor: "blue"
-  },
   about: {
     padding: 25,
-    color: "white",
-    textTransform: "capitalize",
     textDecoration: "none",
     fontSize: 16,
-    textAlign: "auto"
+    textAlign: "auto",
+    fontFamily: "Montserrat"
   },
   icons: {
     fontSize: 40
@@ -42,7 +44,9 @@ export default function Home() {
     alt: "personalAvatar"
   })), /*#__PURE__*/React.createElement(Card, {
     className: classes.aboutCard
-  }), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(Link, {
+  }), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(LightTooltip, {
+    title: "Resume PDF"
+  }, /*#__PURE__*/React.createElement(Link, {
     color: "primary",
     href: "assets/other/ReekaMaharajResume.pdf",
     target: "_blank",
@@ -51,7 +55,9 @@ export default function Home() {
     "aria-label": "link to resume"
   }, /*#__PURE__*/React.createElement(PictureAsPdfIcon, {
     className: classes.icons
-  }))), /*#__PURE__*/React.createElement(Link, {
+  })))), /*#__PURE__*/React.createElement(LightTooltip, {
+    title: "GitHub Repo"
+  }, /*#__PURE__*/React.createElement(Link, {
     color: "primary",
     href: "https://github.com/reekamaharaj",
     target: "_blank",
@@ -60,7 +66,9 @@ export default function Home() {
     "aria-label": "github"
   }, /*#__PURE__*/React.createElement(GitHubIcon, {
     className: classes.icons
-  }))), /*#__PURE__*/React.createElement(Link, {
+  })))), /*#__PURE__*/React.createElement(LightTooltip, {
+    title: "LinkedIn"
+  }, /*#__PURE__*/React.createElement(Link, {
     color: "primary",
     href: "https://www.linkedin.com/in/reekamaharaj/",
     target: "_blank",
@@ -69,7 +77,9 @@ export default function Home() {
     "aria-label": "linkedin"
   }, /*#__PURE__*/React.createElement(LinkedInIcon, {
     className: classes.icons
-  }))), /*#__PURE__*/React.createElement(Link, {
+  })))), /*#__PURE__*/React.createElement(LightTooltip, {
+    title: "Email"
+  }, /*#__PURE__*/React.createElement(Link, {
     color: "primary",
     href: "mailto: reekamaharaj@gmail.com",
     target: "_blank",
@@ -78,5 +88,5 @@ export default function Home() {
     "aria-label": "email"
   }, /*#__PURE__*/React.createElement(AlternateEmailIcon, {
     className: classes.icons
-  }))))));
+  })))))));
 }
