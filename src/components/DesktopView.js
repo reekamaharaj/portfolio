@@ -12,13 +12,13 @@ import ProjectCard from "./Content/DTProjectCard";
 import About from "./Content/About";
 import Projects from "./Content/projects.json";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
 	root: {
 		height: "100%",
 		backgrondColor: "transparent",
 	},
 	nested: {
-		paddingLeft: theme.spacing(4),
+		
 		height: "100%",
 	},
 	tabButtonClosed: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 	tabButtonOpened: {
 		width: "100%",
 	},
-}));
+});
 
 const styleFactory = (selectedIndex, index) => ({
 	transform: selectedIndex === index ? "" : "rotate(90deg)",

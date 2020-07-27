@@ -10,16 +10,15 @@ import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
 import Tooltip from "@material-ui/core/Tooltip";
 
-const LightTooltip = withStyles(theme => ({
+const LightTooltip = withStyles({
 	tooltip: {
-		backgroundColor: theme.palette.common.white,
+		backgroundColor: "white",
 		color: "rgba(0, 0, 0, 0.87)",
-		boxShadow: theme.shadows[1],
 		fontSize: 11,
 	},
-}))(Tooltip);
+})(Tooltip);
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
 	root: {
 		margin: 10,
 	},
@@ -56,7 +55,7 @@ const useStyles = makeStyles(theme => ({
 			textShadow: "0 0 15px blue",
 		},
 	},
-}));
+});
 
 export default function Home() {
 	const classes = useStyles();

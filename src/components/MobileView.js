@@ -43,13 +43,13 @@ function a11yProps(index) {
 	};
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
 	root: {
 		flexGrow: 1,
 		height: "100%",
 		backgroundColor: "transparent",
 	},
-}));
+});
 
 export default function SimpleTabs() {
 	const classes = useStyles();
