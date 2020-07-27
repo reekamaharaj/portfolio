@@ -8,7 +8,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import Home from "./Home";
 import ProjectCard from "./ProjectCard";
 import About from "./About";
-import Projects from "./projects.json";
+import Projects from "../projects.json";
 
 const useStyles = makeStyles(theme => ({
 	root: {

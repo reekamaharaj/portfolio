@@ -4,7 +4,7 @@ import "./index.css";
 
 const theme = (() => {
 	const palette = createPalette({
-		type: "dark",
+		type: "light",
 	});
 
 	return createMuiTheme({
@@ -13,4 +13,3 @@ const theme = (() => {
 })();
 
 export default theme;
-
