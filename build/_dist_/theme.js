@@ -4,7 +4,7 @@ import "./index.css.proxy.js";
 
 const theme = (() => {
   const palette = createPalette({
-    type: "dark"
+    type: "light"
   });
   return createMuiTheme({
     palette: palette

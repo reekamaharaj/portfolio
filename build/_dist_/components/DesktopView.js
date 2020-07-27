@@ -1,14 +1,16 @@
 import React from "/web_modules/react.js";
+import classNames from "/web_modules/classnames.js";
+import { useWindowDimensions } from "./WindowDimensionsProvider.js";
 import { makeStyles } from "/web_modules/@material-ui/core/styles.js";
 import List from "/web_modules/@material-ui/core/List.js";
 import Divider from "/web_modules/@material-ui/core/Divider.js";
 import Collapse from "/web_modules/@material-ui/core/Collapse.js";
 import ToggleButtonGroup from "/web_modules/@material-ui/lab/ToggleButtonGroup.js";
 import ToggleButton from "/web_modules/@material-ui/lab/ToggleButton.js";
-import Home from "./Home.js";
-import ProjectCard from "./ProjectCard.js";
-import About from "./About.js";
-import Projects from "./projects.json.proxy.js";
+import Home from "./Content/Home.js";
+import ProjectCard from "./Content/DTProjectCard.js";
+import About from "./Content/About.js";
+import Projects from "./Content/projects.json.proxy.js";
 const useStyles = makeStyles(theme => ({
   root: {
     height: "100%",
@@ -38,7 +40,11 @@ const styleFactory = (selectedIndex, index) => ({
 const timings = {
   enter: 600
 };
-export default function Tab() {
+
+const DesktopView = () => {
+  const {
+    width
+  } = useWindowDimensions();
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
@@ -46,7 +52,11 @@ export default function Tab() {
     setSelectedIndex(index);
   };
 
-  return /*#__PURE__*/React.createElement(List, {
+  return /*#__PURE__*/React.createElement("div", {
+    className: classNames("tile is-ancestor", {
+      "is-vertical": width > 414 && width < 1088
+    })
+  }, /*#__PURE__*/React.createElement(List, {
     className: classes.root
   }, /*#__PURE__*/React.createElement(ToggleButtonGroup, {
     value: selectedIndex,
@@ -117,5 +127,7 @@ export default function Tab() {
     role: project.role
   })))), /*#__PURE__*/React.createElement(Divider, {
     key: project.id
-  })])));
-}
+  })]))));
+};
+
+export default DesktopView;
