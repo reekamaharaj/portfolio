@@ -7,7 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Home from "./Content/Home";
-import ProjectCard from "./Content/ProjectCard";
+import ProjectCard from "./Content/MProjectCard";
 import About from "./Content/About";
 import Projects from "./Content/projects.json";
 
