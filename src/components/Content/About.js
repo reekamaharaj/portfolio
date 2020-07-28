@@ -1,9 +1,10 @@
 import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import { Typography } from "@material-ui/core";
-import Link from "@material-ui/core/Link";
 import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const LightTooltip = withStyles({
@@ -16,36 +17,31 @@ const LightTooltip = withStyles({
 
 const useStyles = makeStyles({
 	root: {
-		margin: 10,
-	},
-	about: {
-		paddingLeft: 25,
-		paddingRight: 25,
-		paddingBottom: 15,
-		textTransform: "none",
-		textDecoration: "none",
-		fontSize: 16,
-		textAlign: "auto",
-		fontFamily: "Montserrat",
-	},
-	aboutCard: {
-		paddingLeft: 20,
-		paddingRight: 20,
+		maxWidth: 400,
 	},
 });
 
 export default function About() {
 	const classes = useStyles();
+
 	return (
-		<Paper elevation={3} className={classes.root}>
-			<Card>
-				<Typography>
-					<h1>About Me</h1>
-				</Typography>
-				<Card className={classes.aboutCard}>
+		<Card className={classes.root}>
+			<CardActionArea>
+				<CardContent>
 					<Typography
-						className={classes.about}
+						style={{
+							fontFamily: "Nothing You Could Do",
+							fontWight: "bold",
+							textAlign: "center",
+						}}
+						variant="h3"
+						component="h2">
+						About Me
+					</Typography>
+					<Typography
+						style={{ fontFamily: "Montserrat" }}
 						variant="body2"
+						color="textSecondary"
 						component="p">
 						I had a short career in Civil Engineering before I
 						decided to take a step back to reevaluate my life goals.
@@ -72,8 +68,8 @@ export default function About() {
 								target="_blank"
 								rel="noopener noreferrer"
 								style={{
-									textDecoration: "underline white",
-									color: "white",
+									textDecoration: "underline",
+
 									fontWeight: "bold",
 								}}>
 								Doodlejutsu
@@ -87,8 +83,7 @@ export default function About() {
 								target="_blank"
 								rel="noopener noreferrer"
 								style={{
-									textDecoration: "underline white",
-									color: "white",
+									textDecoration: "underline",
 									fontWeight: "bold",
 								}}>
 								I'll Get There
@@ -96,8 +91,8 @@ export default function About() {
 						</LightTooltip>{" "}
 						where I write honestly about living with mental illness.
 					</Typography>
-				</Card>
-			</Card>
-		</Paper>
+				</CardContent>
+			</CardActionArea>
+		</Card>
 	);
 }

@@ -7,7 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Home from "./Content/Home";
-import ProjectCard from "./Content/MProjectCard";
+import ProjectCard from "./Content/ProjectCard";
 import About from "./Content/About";
 import Projects from "./Content/projects.json";
 
@@ -65,6 +65,8 @@ export default function SimpleTabs() {
 				<Tabs
 					selectedIndex={selectedIndex}
 					onChange={handleChange}
+					variant="scrollable"
+					scrollButtons="auto"
 					aria-label="simple tabs example">
 					<Tab label="Home" {...a11yProps(0)} />
 					<Tab label="About" {...a11yProps(1)} />

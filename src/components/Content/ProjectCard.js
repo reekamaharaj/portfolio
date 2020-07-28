@@ -1,10 +1,13 @@
 import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
 import { Typography, IconButton } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import Link from "@material-ui/core/Link";
-import Card from "@material-ui/core/Card";
 import Chip from "@material-ui/core/Chip";
 import Tooltip from "@material-ui/core/Tooltip";
 
@@ -18,20 +21,10 @@ const LightTooltip = withStyles({
 
 const useStyles = makeStyles({
 	root: {
-		margin: 10,
-	},
-	card: {
-		paddingLeft: 20,
-		paddingRight: 20,
-	},
-	des: {
-		textTransform: "none",
-		textDecoration: "none",
-		textAlign: "auto",
-		fontFamily: "Montserrat",
+		maxWidth: 400,
 	},
 	icons: {
-		fontSize: 40,
+		fontSize: 30,
 		"&": {
 			lineHeight: "60px",
 			color: "gray",
@@ -41,6 +34,7 @@ const useStyles = makeStyles({
 			content: "",
 			width: "100%",
 			height: "100%",
+
 			backgroundColor: "blue",
 			transition: ".5s",
 			transform: "scale(.9)",
@@ -55,41 +49,43 @@ const useStyles = makeStyles({
 			color: "blue",
 			textShadow: "0 0 15px blue",
 		},
-		// hover glow style from https://codepen.io/Stockin
-	},
-	img: {
-		maxHeight: 300,
 	},
 	chip: {
 		margin: 4,
-		textTransform: "capitalize",
-	},
-	projectCard: {
-		paddingBottom: 15,
+		textTransform: "none",
+		backgroundColor: "blue",
+		color: "white",
 	},
 });
 
 export default function ProjectCard(props) {
 	const classes = useStyles();
+
 	return (
-		<Paper elevation={3} className={classes.root}>
-			<Card>
+		<Card className={classes.root}>
+			<CardActionArea>
 				<LightTooltip title="Deployed App">
 					<a
 						href={props.repoLink}
 						target="_blank"
 						rel="noopener noreferrer">
-						<img
-							className={classes.img}
-							src={props.img}
-							alt="Projectimg"
+						<CardMedia
+							component="img"
+							alt="projectImg"
+							image={props.img}
 						/>
 					</a>
 				</LightTooltip>
 
-				<Typography>
-					<h1>
-						{" "}
+				<CardContent>
+					<Typography
+						style={{
+							fontFamily: "Nothing You Could Do",
+							fontWight: "bold",
+							textAlign: "center",
+						}}
+						variant="h4"
+						component="h2">
 						{props.name}
 						<Link
 							color="primary"
@@ -101,36 +97,41 @@ export default function ProjectCard(props) {
 									<GitHubIcon className={classes.icons} />
 								</IconButton>
 							</LightTooltip>
-						</Link>{" "}
-					</h1>
-				</Typography>
-				<Card className={classes.card}>
+						</Link>
+					</Typography>
+
 					<Typography
-						className={classes.des}
+						style={{ fontFamily: "Montserrat" }}
 						variant="body2"
+						color="textSecondary"
 						component="p">
 						{props.description}
 					</Typography>
-				</Card>
+				</CardContent>
+			</CardActionArea>
 
-				<Card>
-					<Typography
-						className={classes.projectCard}
-						variant="body2"
-						component="p">
-						<h2 className={classes.header}>SKILLS:</h2>{" "}
-						{props.techUsed.map(tech => (
-							<Chip
-								variant="outlined"
-								className={classes.chip}
-								size="small"
-								label={tech}
-								key={tech}
-							/>
-						))}
-					</Typography>
-				</Card>
-			</Card>
-		</Paper>
+			<CardContent>
+				<Typography
+					style={{
+						fontFamily: "Nothing You Could Do",
+						fontWight: "bold",
+						textAlign: "center",
+					}}
+					variant="h5"
+					component="h2">
+					{" "}
+					SKILLS:{" "}
+				</Typography>
+				{props.techUsed.map(tech => (
+					<Chip
+						variant="outlined"
+						className={classes.chip}
+						size="small"
+						label={tech}
+						key={tech}
+					/>
+				))}
+			</CardContent>
+		</Card>
 	);
 }

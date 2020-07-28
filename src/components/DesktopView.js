@@ -8,7 +8,7 @@ import Collapse from "@material-ui/core/Collapse";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import Home from "./Content/Home";
-import ProjectCard from "./Content/DTProjectCard";
+import ProjectCard from "./Content/ProjectCard";
 import About from "./Content/About";
 import Projects from "./Content/projects.json";
 
@@ -18,7 +18,6 @@ const useStyles = makeStyles({
 		backgrondColor: "transparent",
 	},
 	nested: {
-		
 		height: "100%",
 	},
 	tabButtonClosed: {
