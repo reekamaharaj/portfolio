@@ -64,7 +64,7 @@ export default function Home() {
 					<Typography
 						style={{
 							fontFamily: "Nothing You Could Do",
-							fontWight: "bold",
+							fontWeight: "bold",
 							textAlign: "center",
 						}}
 						variant="h3"
@@ -82,7 +82,7 @@ export default function Home() {
 				<LightTooltip title="Resume PDF">
 					<Link
 						color="primary"
-						href="assets/other/ReekaMaharajResume.pdf"
+						href="./images/Reeka's Resume.pdf"
 						target="_blank"
 						rel="noopener noreferrer">
 						<IconButton aria-label="link to resume">

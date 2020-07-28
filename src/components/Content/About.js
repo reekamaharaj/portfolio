@@ -31,7 +31,7 @@ export default function About() {
 					<Typography
 						style={{
 							fontFamily: "Nothing You Could Do",
-							fontWight: "bold",
+							fontWeight: "bold",
 							textAlign: "center",
 						}}
 						variant="h3"
@@ -39,7 +39,7 @@ export default function About() {
 						About Me
 					</Typography>
 					<Typography
-						style={{ fontFamily: "Montserrat" }}
+						style={{ margin: 10, fontFamily: "Montserrat" }}
 						variant="body2"
 						color="textSecondary"
 						component="p">

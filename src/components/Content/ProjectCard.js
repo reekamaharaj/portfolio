@@ -70,6 +70,7 @@ export default function ProjectCard(props) {
 						target="_blank"
 						rel="noopener noreferrer">
 						<CardMedia
+							style={{ margin: 0 }}
 							component="img"
 							alt="projectImg"
 							image={props.img}
@@ -81,7 +82,7 @@ export default function ProjectCard(props) {
 					<Typography
 						style={{
 							fontFamily: "Nothing You Could Do",
-							fontWight: "bold",
+							fontWeight: "bold",
 							textAlign: "center",
 						}}
 						variant="h4"
