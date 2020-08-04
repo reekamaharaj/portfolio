@@ -65,8 +65,8 @@ export default function ProjectCard(props) {
 		<Card className={classes.root}>
 			<CardActionArea>
 				<LightTooltip title="Deployed App">
-					<a
-						href={props.repoLink}
+					<Link
+						href={props.deployedLink}
 						target="_blank"
 						rel="noopener noreferrer">
 						<CardMedia
@@ -75,7 +75,7 @@ export default function ProjectCard(props) {
 							alt="projectImg"
 							image={props.img}
 						/>
-					</a>
+					</Link>
 				</LightTooltip>
 
 				<CardContent>
@@ -90,7 +90,7 @@ export default function ProjectCard(props) {
 						{props.name}
 						<Link
 							color="primary"
-							href={props.deployedLink}
+							href={props.repoLink}
 							target="_blank"
 							rel="noopener noreferrer">
 							<LightTooltip title="GitHub Repo">
